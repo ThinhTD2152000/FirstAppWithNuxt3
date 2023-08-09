@@ -14,12 +14,12 @@
     "@types/node": "^18.17.3",
     "autoprefixer": "^10.4.14",
     "nuxt": "^3.6.5",
-    "postcss": "^8.4.27",
-    "tailwindcss": "^3.3.3"
+    "postcss": "^8.4.27"
   },
   "dependencies": {
     "flowbite": "^1.8.1",
     "init": "^0.1.2",
+    "nuxt-headlessui": "^1.1.4",
     "yarn": "^1.22.19"
   }
 }
