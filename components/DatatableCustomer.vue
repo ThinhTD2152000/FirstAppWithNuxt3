@@ -24,8 +24,9 @@
 </template>
 
 <script setup>
-import { ref, computed } from 'vue'
-import fecth from '../composables/fetch.js'
+import { ref, computed, reactive } from 'vue'
+import axios from 'axios'
+// import fecth from '../composables/fetch.js'
 const url = 'https://64d5b6dd613ee4426d978af1.mockapi.io/datatable'
 // const dataSource = computed(() => {
 //   return data.value || []
@@ -58,7 +59,9 @@ const columns = [
 const { pending, data: customer } = useFetch(url, {
   lazy: true,
 })
-const dataSource = customer._rawValue
+// const dataSource = customer._rawValue
+const data = ref([])
+const dataSource = computed(() => data.value)
 const te = ref(1)
 const a = ref(0)
 const b = ref(1)
@@ -73,32 +76,41 @@ function addB() {
 //   console.log(data)
 //   return data
 // }
-const { dataAPI } = fetch()
-console.log(dataSource)
+// const { dataAPI } = fetch()
+// console.log(dataSource)
 const test = computed(() => {
   return te.value === 1 ? 'Good' : 'Bad'
 })
 
-console.log(test)
+// console.log(test)
 function changeValue() {
   te.value = 3
-  console.log('tr,', te)
+  // console.log('tr,', te)
 }
-console.log(dataAPI, 'dataAPI')
+
+const fetchData = async () => {
+  const res = await fetch(url)
+  data.value = (await res.json()) || []
+}
+// console.log(dataAPI, 'dataAPI')
 //
 const question = ref('dj')
 const answer = ref('Questions usually contain a question mark. ;-)')
 
+onMounted(() => {
+  fetchData()
+})
+
 watch(question, async (newQuestion, oldQuestion) => {
   if (newQuestion.includes('?')) {
-    console.log(oldQuestion, 'oldQuestion')
-    console.log(newQuestion, 'newQuestion')
-    console.log(question, 'question')
+    // console.log(oldQuestion, 'oldQuestion')
+    // console.log(newQuestion, 'newQuestion')
+    // console.log(question, 'question')
     answer.value = 'Thinking...'
     try {
       const res = await fetch('https://yesno.wtf/api')
       answer.value = (await res.json()).answer
-      console.log(answer)
+      // console.log(answer)
     } catch (error) {
       answer.value = 'Error! Could not reach the API. ' + error
     }
