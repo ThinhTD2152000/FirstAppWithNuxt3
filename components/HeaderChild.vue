@@ -34,7 +34,7 @@ onMounted(() => {
 })
 </script>
 <template>
-  <header id="header" class="fixed w-full z-30">
+  <header class="relative w-full z-30">
     <nav class="border-gray-200 px-4 lg:px-6 py-2.5 dark:bg-gray-800">
       <div
         class="flex flex-wrap justify-between items-center mx-auto max-w-screen-xl"
@@ -42,7 +42,7 @@ onMounted(() => {
         <a href="" class="flex items-center">
           <img src="../assets/img/logo.png" class="mr-3 h-20" />
           <span
-            class="text-white logo-content self-center text-xl font-bold whitespace-nowrap dark:text-white"
+            class="text-black logo-content self-center text-xl font-bold whitespace-nowrap dark:text-white"
             >CIRCLE 360</span
           >
         </a>
@@ -83,7 +83,7 @@ onMounted(() => {
         </div>
         <div
           id="mobile-menu-2"
-          class="hidden text-white justify-between items-center w-full lg:flex lg:w-auto lg:order-1"
+          class="hidden text-black justify-between items-center w-full lg:flex lg:w-auto lg:order-1"
         >
           <ul
             class="head-content flex flex-col mt-4 font-medium lg:flex-row lg:space-x-8 lg:mt-0"
@@ -98,9 +98,9 @@ onMounted(() => {
             </li>
             <li>
               <a
-                href="/customer"
+                href="#"
                 class="block py-2 pr-4 pl-3 border-b border-gray-100 hover:bg-gray-50 lg:hover:bg-transparent lg:border-0 lg:hover:text-primary-700 lg:p-0 dark:text-gray-400 lg:dark:hover:text-white dark:hover:bg-gray-700 dark:hover:text-white lg:dark:hover:bg-transparent dark:border-gray-700"
-                >Customer</a
+                >Company</a
               >
             </li>
             <li>
@@ -141,6 +141,6 @@ onMounted(() => {
 
 <script>
 export default {
-  name: 'HeaderPage',
+  name: 'HeaderChild',
 }
 </script>

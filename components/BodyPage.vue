@@ -6,7 +6,7 @@
       autoplay
       loop
       muted
-      class="absolute z-2 w-auto min-w-screen min-h-screen max-w-none"
+      class="absolute z-2 w-auto min-w-full min-h-full max-w-none"
     >
       <source
         src="https://assets.mixkit.co/videos/preview/mixkit-set-of-plateaus-seen-from-the-heights-in-a-sunset-26070-large.mp4"
